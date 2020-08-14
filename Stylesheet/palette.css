@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 1px dotted gray;
+}
+
+body {
+    background-color: rgb(20, 121, 154);
+    padding: 5% 0;
+}
+
+form {
+    background-color: rgba(251, 227, 227, 0.836);
+    box-shadow: 0px 0px 11px 3px white;
+    margin: auto;
+    width: 700px;
+    height: 290px;
+    position: relative;
+    padding: 10% 0;
+}
+
+form div {
+    display: inline-block;
+}
+
+.form-section1 {
+    position: absolute;
+    left: 30px;
+    bottom: 12%;
+    line-height: 35px;
+    width: 300px;
+    height: 225px;
+}
+
+img {
+    position: absolute;
+    right: 30px;
+    bottom: 12%;
+}
