@@ -9,24 +9,23 @@
 </head>
 
 <body>
-    <form>
-        <div class="form-section1">
-            <input type="text" placeholder="First Name" /><br>
-            <input type="text" placeholder="Last Name" /><br>
-            <label>Gender:</label><br>
-            <input type="radio" name="gender" />
-            <label>F</label>
-            <input type="radio" name="gender" />
-            <label>M</label><br>
-            <textarea placeholder="Your message here..."></textarea></br>
-            <input type="submit" value="Submit" />
-        </div>
-        <div class="form-image">
+    <div id="form-container">
+        <form>
+            <div class="confirmation-banner">Thank you for contacting us, </div>
+            <div id="form-section">
+                <input type="text" placeholder="First Name *" class="first-name-field" /><br>
+                <input type="text" placeholder="Last Name *" class="last-name-field" /><br>
+                <label for="gender">Gender:</label><br>
+                <input type="radio" name="gender" />F
+                <input type="radio" name="gender" />M<br>
+                <textarea placeholder="Your message here... *" class="message-area"></textarea></br>
+                <input type="button" value="Submit" class="submit-button" /><br>
+                <p>* mandatory fields</p>
+            </div>
             <img src="src/photo.jpg" />
-        </div>
-    </form>
+        </form>
 
-    <script src="Script/app.js"></script>
+        <script src="Script/app.js"></script>
 </body>
 
 </html>
