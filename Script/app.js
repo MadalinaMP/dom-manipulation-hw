@@ -1,113 +1,80 @@
+// this function is literally Too Long, and I tried my best to minimize the code but otherwise the no-inputs wouldn't work properly so I tried one for each possible situation. I was lucky there are only 3 fields to work with. I am Sure there's a more efficient method but I couldn't figure it out within the span of the time left for this hw to be uploaded ...
 const firstNameField = document.querySelector(".first-name-field");
 const lastNameField = document.querySelector(".last-name-field");
 const messageArea = document.querySelector(".message-area");
 const submitButton = document.querySelector(".submit-button");
 const confirmationBanner = document.querySelector(".confirmation-banner");
+const allFields = document.querySelector(".all-fields"); //i tried to make more use of this one but it only worked at the very end where i hid the banner again in case the user wants to submit something again
 
 submitButton.addEventListener('click', function () {
 
     if (firstNameField.value == 0 && lastNameField.value == 0 && messageArea.value == 0) {
-
-        firstNameField.classList.add("no-input-red-border");
-        lastNameField.classList.add("no-input-red-border");
-        messageArea.classList.add("no-input-red-border");
-
-        firstNameField.addEventListener('input', function () {
-            firstNameField.classList.remove("no-input-red-border");
-        });
-
-        lastNameField.addEventListener('input', function () {
-            lastNameField.classList.remove("no-input-red-border");
-        });
-
-        messageArea.addEventListener('input', function () {
-            messageArea.classList.remove("no-input-red-border");
-        });
-
-        console.log("No input in any field.")
+        checkFirstNameField();
+        checkLastNameField();
+        checkMessageArea();
     }
 
     else if (firstNameField.value == 0 && lastNameField.value == 0) {
-        firstNameField.classList.add("no-input-red-border");
-        lastNameField.classList.add("no-input-red-border");
-
-        firstNameField.addEventListener('input', function () {
-            firstNameField.classList.remove("no-input-red-border");
-        });
-
-        lastNameField.addEventListener('input', function () {
-            lastNameField.classList.remove("no-input-red-border");
-        });
-
-        console.log("No input in First Name field.");
-        console.log("No input in Last Name field.");
+        checkFirstNameField();
+        checkLastNameField();
     }
 
     else if (lastNameField.value == 0 && messageArea.value == 0) {
-        lastNameField.classList.add("no-input-red-border");
-        messageArea.classList.add("no-input-red-border");
-
-        lastNameField.addEventListener('input', function () {
-            lastNameField.classList.remove("no-input-red-border");
-        });
-
-        messageArea.addEventListener('input', function () {
-            messageArea.classList.remove("no-input-red-border");
-        });
-
-        console.log("No input in Last Name field.");
-        console.log("No input in Message area.");
+        checkLastNameField();
+        checkMessageArea();
     }
 
     else if (firstNameField.value == 0 && messageArea.value == 0) {
-        firstNameField.classList.add("no-input-red-border");
-        messageArea.classList.add("no-input-red-border");
-
-        firstNameField.addEventListener('input', function () {
-            firstNameField.classList.remove("no-input-red-border");
-        });
-
-        messageArea.addEventListener('input', function () {
-            messageArea.classList.remove("no-input-red-border");
-        });
-        console.log("No input in First Name field.");
-        console.log("No input in Message area.");
+        checkFirstNameField();
+        checkMessageArea();
     }
 
     else if (firstNameField.value == 0) {
-        firstNameField.classList.add("no-input-red-border");
-
-        firstNameField.addEventListener('input', function () {
-            firstNameField.classList.remove("no-input-red-border");
-        });
-
-        console.log("No input in First Name field.")
+        checkFirstNameField();
     }
 
     else if (lastNameField.value == 0) {
-        lastNameField.classList.add("no-input-red-border");
-
-        lastNameField.addEventListener('input', function () {
-            lastNameField.classList.remove("no-input-red-border");
-        });
-
-        console.log("No input in Last Name field.")
+        checkLastNameField();
     }
 
     else if (messageArea.value == 0) {
-        messageArea.classList.add("no-input-red-border");
-
-        messageArea.addEventListener('input', function () {
-            messageArea.classList.remove("no-input-red-border");
-        });
-
-        console.log("No input in Message area.");
+        checkMessageArea();
     }
 
     else {
         displayConfirmationBanner();
     }
 });
+
+function checkFirstNameField() {
+    firstNameField.classList.add("no-input-red-border");
+
+    firstNameField.addEventListener('input', function () {
+        firstNameField.classList.remove("no-input-red-border");
+    });
+
+    console.log("No input in First Name field.");
+}
+
+function checkLastNameField() {
+    lastNameField.classList.add("no-input-red-border");
+
+    lastNameField.addEventListener('input', function () {
+        lastNameField.classList.remove("no-input-red-border");
+    });
+
+    console.log("No input in Last Name field.");
+}
+
+function checkMessageArea() {
+    messageArea.classList.add("no-input-red-border");
+
+    messageArea.addEventListener('input', function () {
+        messageArea.classList.remove("no-input-red-border");
+    });
+
+    console.log("No input in Message area.");
+}
 
 function displayConfirmationBanner() {
     const userFirstNameSpan = document.createElement('SPAN');
@@ -124,16 +91,18 @@ function displayConfirmationBanner() {
     firstNameField.value = null;
     lastNameField.value = null;
     messageArea.value = null;
+
+    radioButtonsReset();
 }
 
-firstNameField.addEventListener('input', function () {
-    confirmationBanner.style.display = "none";
-})
+function radioButtonsReset() {
+    const radioButtons = document.getElementsByName("gender");
 
-lastNameField.addEventListener('input', function () {
-    confirmationBanner.style.display = "none";
-})
+    for (var i = 0; i <= radioButtons.length; i++) {
+        radioButtons[i].checked = false; //Uncaught TypeError: Cannot set property 'checked' of undefined. (even though the function works just fine)
+    }
+}
 
-messageArea.addEventListener('input', function () {
+allFields.addEventListener('input', function () {
     confirmationBanner.style.display = "none";
-})
+});

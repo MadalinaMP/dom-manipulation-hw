@@ -5,26 +5,25 @@
 }
 
 /*classes for the function*/
-
 .confirmation-banner {
     position: absolute;
     top: 32px;
     padding: 15px;
-    background-color:rgba(255, 241, 224, 0.514);
-    box-shadow: 0px 0px 11px 3px rgba(255, 174, 174, 0.733);
+    background-color:rgba(243, 255, 224, 0.705);
+    box-shadow: 0px 0px 11px 3px rgba(174, 255, 210, 0.733);
     border-radius: 30px;
     font-size: 14px;
-    color: rgb(196, 59, 100);
+    color: rgb(59, 196, 178);
     
     display:none;
 }
 
 .no-input-red-border {
-    box-shadow: inset 0px 0px 2px 0px rgb(187, 22, 22);
+    box-shadow: inset 0px 0px 3px 0px rgb(187, 22, 22);
 }
-
 /* /classes for the function */
 
+/*this code hasn't been sorted*/
 #form-container {
     background-color: rgb(20, 121, 154);
     display: flex;
@@ -76,6 +75,7 @@ input[type="button"] {
     border-radius: 5px;
     cursor: pointer;
 }
+
 input[type="button"]:hover {
     background-color: rgba(20, 121, 154, 0.432);
     color: rgb(247, 189, 189);
